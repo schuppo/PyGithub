@@ -3167,9 +3167,9 @@ class Repository(github.GithubObject.CompletableGithubObject):
         :calls: `GET /repos/{owner}/{repo}/actions/runs <https://docs.github.com/en/rest/reference/actions#list-workflow-runs-for-a-repository>`_
         :param actor: :class:`github.NamedUser.NamedUser` or string
         :param branch: :class:`github.Branch.Branch` or string
-        :param event: string
+        :param event: :class:`github.Event.Event` or string
         :param status: string `queued`, `in_progress`, `completed`, `success`, `failure`, `neutral`, `cancelled`, `skipped`, `timed_out`, or `action_required`
-        :param created: #TODO https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates
+        :param created: string
 
         :rtype: :class:`github.PaginatedList.PaginatedList` of :class:`github.WorkflowRun.WorkflowRun`
         """

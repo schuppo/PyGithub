@@ -243,6 +243,14 @@ class WorkflowRun(github.GithubObject.CompletableGithubObject):
         timingdata = namedtuple("TimingData", data.keys())
         return timingdata._make(data.values())
 
+    def jobs(self):
+        """
+        :calls: `GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs <https://docs.github.com/en/rest/reference/actions#workflow-runs>`_
+        :rtype: namedtuple with billable and run_duration_ms members
+        """
+        headers, data = self._requester.requestJsonAndCheck("GET", f"{self.url}/jobs")
+        return data["jobs"]
+
     def delete(self):
         """
         :calls: `DELETE /repos/{owner}/{repo}/actions/runs/{run_id} <https://docs.github.com/en/rest/reference/actions#workflow-runs>`_
